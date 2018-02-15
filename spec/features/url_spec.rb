@@ -9,7 +9,7 @@ RSpec.feature Url, type: :feature do
       fill_form_and_submit(:url, :new, route: "http://www.example.com/")
 
       expect(page).to have_text "www.example.com"
-      expect(page).to have_text url.created_at.strftime("%d %b, %Y")
+      expect(page).to have_text root_path + "u/"
     end
   end
 end

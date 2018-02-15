@@ -11,6 +11,7 @@ class Url < ApplicationRecord
 
   def create_path(length: DEFAULT_PATH_LENGTH)
     self.path = unique_path(length)
+    self
   end
 
   def full_route

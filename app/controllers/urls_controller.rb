@@ -7,11 +7,6 @@ class UrlsController < ApplicationController
     @url = Url.new
   end
 
-  def visit
-    @url = Url.find_by(path: params[:path])
-    redirect_to @url.full_route, status: 302
-  end
-
   def create
     @url = Url.new(url_params)
     @url.create_path
@@ -20,6 +15,11 @@ class UrlsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def visit
+    @url = Url.find_by(path: params[:path])
+    redirect_to @url.full_route, status: 302
   end
 
   private
