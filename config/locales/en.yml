@@ -17,3 +17,12 @@ en:
 
   titles:
     application: Short url
+  urls:
+    index:
+      links:
+        new: "New short Url"
+      new:
+  helpers:
+    submit:
+      url:
+        create: "Create Short Url"
