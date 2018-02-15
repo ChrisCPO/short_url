@@ -1,0 +1,7 @@
+{
+  "name": "short_url",
+  "private": true,
+  "dependencies": {
+    "normalize.css": "^8.0.0"
+  }
+}
