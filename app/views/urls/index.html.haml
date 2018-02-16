@@ -1,3 +1,13 @@
-= link_to t(".links.new"), new_url_path
+.container
+  .url__new
+    = link_to t(".links.new"), new_url_path
 
-= render @urls
+  .url_list
+    .url_list__attribute--column_title
+      =t(".list.titles.route")
+    .url_list__attribute--column_title
+      =t(".list.titles.created_at")
+    .url_list__attribute--column_title
+      =t(".list.titles.path")
+    .border
+    = render @urls
