@@ -6,7 +6,6 @@ class WebAddressValidator < ActiveModel::Validator
         add_error(record)
       end
     rescue => error
-      puts error
       add_error(record)
     end
   end
