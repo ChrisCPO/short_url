@@ -59,6 +59,10 @@ RSpec.describe Url, type: :model do
     describe "Display Constiants" do
       it { expect(url.class::ROUTE_LENGTH).to eq 37  }
       it { expect(url.class::ROUTE_TAG).to eq "..."  }
+      it {
+        limit = url.class::ROUTE_LENGTH + url.class::ROUTE_TAG.length
+        expect(url.class::ROUTE_LENGTH_LIMIT).to eq limit
+      }
     end
 
     describe "#created_at" do
@@ -70,13 +74,25 @@ RSpec.describe Url, type: :model do
     end
 
     describe "#display_route" do
-      it "returns route with a limited length" do
-        route = "http://example.com/foo/bar/bazzz/foo/bazz_1/quxxxx_13450/foo"
-        url = build(:url, route: route)
-        url.create_path.save
-        url = url.decorate
+      context "if over length limit" do
+        it "returns route with a limited length" do
+          route = "http://example.com/foo/bar/bazzz/foo/bazz_1/quxxxx_13450/foo"
+          url = build(:url, route: route)
+          url.create_path.save
+          url = url.decorate
 
-        expect(url.display_route.length).to eq 40
+          expect(url.display_route.length).to eq 40
+          expect(url.display_route).to include "..."
+        end
+      end
+
+      context "if NOT over length limit" do
+        it "returns route" do
+          url = create(:url, :with_path).decorate
+
+          expect(url.display_route.length).to be < 40
+          expect(url.display_route).not_to include "..."
+        end
       end
     end
   end

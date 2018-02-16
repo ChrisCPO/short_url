@@ -1,4 +1,7 @@
-.url_info
+.url_list__attribute--column
   = link_to url.display_route, url.route
+.url_list__attribute--column
   = url.created_at
+.url_list__attribute--column
   = link_to urls_defined_path(url), urls_defined_path(url)
+.border
