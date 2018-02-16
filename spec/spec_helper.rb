@@ -27,7 +27,9 @@ RSpec.configure do |config|
   config.order = :random
 end
 
-WebMock.disable_net_connect!(allow_localhost: true)
+WebMock.allow_net_connect!
+
 
 # Only allow Timecop with block syntax
 Timecop.safe_mode = true
+

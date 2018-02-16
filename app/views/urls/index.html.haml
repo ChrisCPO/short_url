@@ -1,6 +1,6 @@
 .container
   .url__new
-    = link_to t(".links.new"), new_url_path
+    = button_to t(".links.new"), new_url_path, method: :get
 
   .url_list
     .url_list__attribute--column_title

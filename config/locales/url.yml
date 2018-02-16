@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    errors:
+      url:
+        route:
+          invalid_url: "is not a valid url"

@@ -5,8 +5,20 @@ $grid-url: (
 );
 
 .url__new {
+  color: $yellow_light;
   @include padding($base-spacing);
   background-color: $blue-medium-dark;
+}
+
+#new-url-form {
+  .url_route {
+    max-width: 50em;
+    margin: 0;
+  }
+
+  #submit-new-url {
+    max-height: 3em;
+  }
 }
 
 .url_list {

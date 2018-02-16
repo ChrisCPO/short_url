@@ -1,8 +1,13 @@
 .app-title {
   @include padding($small-spacing);
   @include margin(0);
-  color: $yellow-light;
   background-color: $blue-medium-dark;
   text-align: center;
   font-size: $font-large;
+
+  a {
+    color: $yellow-light;
+    text-decoration:  none;
+    font-size: $font-large;
+  }
 }
