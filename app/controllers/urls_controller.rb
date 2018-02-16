@@ -17,6 +17,13 @@ class UrlsController < ApplicationController
     end
   end
 
+  def destroy
+    @url = Url.find(params[:id])
+    @url.destroy
+
+    redirect_to urls_path
+  end
+
   def visit
     @url = Url.find_by(path: params[:path])
     redirect_to @url.full_route, status: 302

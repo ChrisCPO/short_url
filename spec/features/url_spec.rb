@@ -12,4 +12,15 @@ RSpec.feature Url, type: :feature do
       expect(page).to have_text root_path + "u/"
     end
   end
+
+  feature "url deletion" do
+    it "allows a url to be created" do
+      url = create(:url, :with_path).decorate
+      visit root_path
+
+      click_button("Delete")
+
+      expect(page).not_to have_text url.route
+    end
+  end
 end
