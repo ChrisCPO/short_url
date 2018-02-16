@@ -18,14 +18,12 @@ en:
   titles:
     application: Short Url
   urls:
-    index:
-      list:
-        titles:
-          route: "Original Url"
-          created_at: "Created At"
-          path: "Short Url"
-      links:
-        new: "New short Url"
+    list:
+      titles:
+        route: "Original Url"
+        created_at: "Created At"
+        path: "Short Url"
+        actions: "Actions"
   helpers:
     submit:
       url:

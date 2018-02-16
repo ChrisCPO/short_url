@@ -1,13 +1,7 @@
 .container
   .url__new
-    = link_to t(".links.new"), new_url_path
+    = simple_form_for Url.new, html: { id: "new-url-form" }, url: urls_path do |form|
+      = form.input :route, label: false
+      = form.submit t("helpers.submit.url.create"), id: "submit-new-url"
 
-  .url_list
-    .url_list__attribute--column_title
-      =t(".list.titles.route")
-    .url_list__attribute--column_title
-      =t(".list.titles.created_at")
-    .url_list__attribute--column_title
-      =t(".list.titles.path")
-    .border
-    = render @urls
+  = render "list"

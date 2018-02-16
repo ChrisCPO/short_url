@@ -5,10 +5,13 @@ RSpec.feature Url, type: :feature do
     it "allows a url to be created" do
       visit(root_path)
 
-      click_link(I18n.t("urls.index.links.new"))
-      fill_form_and_submit(:url, :new, route: "http://www.example.com/")
+      fill_in "url_route", with: "http://www.example.com/"
+      click_button I18n.t("helpers.submit.url.create")
 
+      expect(page).to have_button t("helpers.submit.url.create")
+      url = Url.first.decorate
       expect(page).to have_text "www.example.com"
+      expect(page).to have_text url.display_route
       expect(page).to have_text root_path + "u/"
     end
   end

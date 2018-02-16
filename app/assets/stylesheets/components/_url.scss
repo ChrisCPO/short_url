@@ -29,6 +29,26 @@ $grid-url: (
   @include grid-url-column;
 }
 
+#new-url-form {
+  display: flex;
+
+  .url_route {
+    max-width: 60em;
+    margin: 0;
+    height: 100%;
+    flex: 1;
+  }
+
+  #url_route {
+    margin: 0;
+    height: 100%;
+  }
+
+  #submit-new-url {
+     margin-left: $base-spacing * 2;
+  }
+}
+
 .border {
   border-bottom: $base-border;
   @include grid-column($grid-url-columns-count, $grid-url);

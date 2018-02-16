@@ -1,20 +1,16 @@
 class UrlsController < ApplicationController
   def index
-    @urls = Url.all.order(created_at: :desc).decorate
-  end
-
-  def new
-    @url = Url.new
+    @urls = urls_list
   end
 
   def create
-    @url = Url.new(url_params)
-    @url.create_path
-    if @url.save
-      redirect_to urls_path
-    else
-      render :new
-    end
+    url = Url.new(url_params)
+    url.create_path
+    url.save
+
+    @urls = urls_list
+
+    render partial: "urls/list"
   end
 
   def destroy
@@ -30,6 +26,10 @@ class UrlsController < ApplicationController
   end
 
   private
+
+  def urls_list
+    Url.all.order(created_at: :desc).decorate
+  end
 
   def url_params
     params.require(:url).permit(:route)

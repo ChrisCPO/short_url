@@ -1,0 +1,11 @@
+.url_list#urls-list
+  .url_list__attribute--column_title
+    =t(".titles.route")
+  .url_list__attribute--column_title
+    =t(".titles.created_at")
+  .url_list__attribute--column_title
+    =t(".titles.path")
+  .url_list__attribute--column_title
+    =t(".titles.actions")
+  .border
+  = render @urls
