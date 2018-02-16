@@ -1,3 +1,14 @@
+@mixin margin-control() {
+  margin: 0 8% 0 8%;
+}
+
+
+$custom-grid--thirds: (
+  columns: 3,
+  gutter: 60px,
+);
+
+
 html {
   background-color: $viewport-background-color;
   box-sizing: border-box;
@@ -16,4 +27,13 @@ body {
 
 body {
   margin: 0;
+  background-color: tint($blue-light, 90%);
+}
+
+main {
+  @include margin-control;
+}
+
+.container {
+  @include grid-container;
 }

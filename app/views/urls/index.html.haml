@@ -1,0 +1,13 @@
+.container
+  .url__new
+    = button_to t(".links.new"), new_url_path, method: :get
+
+  .url_list
+    .url_list__attribute--column_title
+      =t(".list.titles.route")
+    .url_list__attribute--column_title
+      =t(".list.titles.created_at")
+    .url_list__attribute--column_title
+      =t(".list.titles.path")
+    .border
+    = render @urls

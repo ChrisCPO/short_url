@@ -16,4 +16,19 @@ en:
         "%B %d"
 
   titles:
-    application: Short url
+    application: Short Url
+  urls:
+    index:
+      list:
+        titles:
+          route: "Original Url"
+          created_at: "Created At"
+          path: "Short Url"
+      links:
+        new: "New short Url"
+  helpers:
+    submit:
+      url:
+        create: "Create Short Url"
+    delete:
+      url: "Delete"

@@ -1,0 +1,47 @@
+$grid-url-columns-count: 4;
+$grid-url: (
+  columns: $grid-url-columns-count,
+  gutter: 30px
+);
+
+.url__new {
+  color: $yellow_light;
+  @include padding($base-spacing);
+  background-color: $blue-medium-dark;
+}
+
+#new-url-form {
+  .url_route {
+    max-width: 50em;
+    margin: 0;
+  }
+
+  #submit-new-url {
+    max-height: 3em;
+  }
+}
+
+.url_list {
+  @include grid-collapse($grid-url);
+  @include grid-container;
+  padding-top: $base-spacing;
+}
+
+@mixin grid-url-column() {
+  @include grid-column(1, $grid-url);
+  @include padding($small-spacing);
+  text-align: left;
+}
+
+.url_list__attribute--column {
+  @include grid-url-column;
+}
+
+.url_list__attribute--column_title {
+  @include grid-url-column;
+}
+
+.border {
+  border-bottom: $base-border;
+  @include grid-column($grid-url-columns-count, $grid-url);
+}
