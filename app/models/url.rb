@@ -5,6 +5,8 @@ class Url < ApplicationRecord
   validates :route, presence: :true, uniqueness: true
   validates :path, presence: :true
 
+  validates_with WebAddressValidator
+
   def route=(new_route)
     super(strip_http(new_route))
   end

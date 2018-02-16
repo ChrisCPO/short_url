@@ -1,5 +1,5 @@
-#div
-  = simple_form_for @url do |form|
+.url__new
+  = simple_form_for @url, html: { id: "new-url-form" } do |form|
     = form.input :route
 
-    = form.submit
+    = form.submit t("helpers.submit.url.create"), id: "submit-new-url"

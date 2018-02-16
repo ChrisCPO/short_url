@@ -5,6 +5,18 @@ RSpec.describe Url, type: :model do
     it { should validate_presence_of(:route) }
     it { should validate_uniqueness_of(:route) }
     it { should validate_presence_of(:path) }
+
+    context "custom validations" do
+      context "non valid route" do
+        it "throws invaild message" do
+          url = build(:url, route: "abcd", path: "abcd")
+          url.validate
+
+          message = I18n.t("activerecord.errors.url.route.invalid_url")
+          expect(url.errors.messages[:route]).to include message
+        end
+      end
+    end
   end
 
   describe "Constants" do
