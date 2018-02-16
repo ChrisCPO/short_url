@@ -4,4 +4,6 @@
   = url.created_at
 .url_list__attribute--column
   = link_to urls_defined_path(url), urls_defined_path(url)
+.url_list__attribute--column
+  = button_to t("helpers.delete.url"), url_path(url.id), method: :delete
 .border
