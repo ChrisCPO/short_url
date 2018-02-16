@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   var updateUrls = function(data) {
     var urlsList = $("#urls-list");
-    urlsList.html(data);
+    urlsList.replaceWith(data);
   }
 
   var disableSubmitButton = function(setTo) {
